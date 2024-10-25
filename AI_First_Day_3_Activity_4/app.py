@@ -51,7 +51,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 with st.sidebar :
-    st.image('AI_First_Day_3_Activity_4/images/White_AI Republic.png')
+    st.image('AI_First_Day_3_Activity_4/images/AI_1.png')
     openai.api_key = st.text_input('Enter OpenAI API token:', type='password')
     if not (openai.api_key.startswith('sk-') and len(openai.api_key)==164):
         st.warning('Please enter your OpenAI API token!', icon='⚠️')
@@ -84,30 +84,40 @@ if 'chat_session' not in st.session_state:
 
 # Options : Home
 if options == "Artifact Analysis" :
+    st.markdown("""
+            <style>
+            [data-testid="stAppViewContainer"] > .main {
+                background-image: url("https://images.pexels.com/photos/20872396/pexels-photo-20872396.jpeg");
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            </style> """, 
+        unsafe_allow_html=True)
 
-   st.title('Amber\'s News Summarizer Tool')
-   st.write("Welcome to the News Article Summarizer Tool, designed to provide you with clear, concise, and well-structured summaries of news articles. This tool is ideal for readers who want to quickly grasp the essential points of any news story without wading through lengthy articles. Whether you’re catching up on global events, diving into business updates, or following the latest political developments, this summarizer delivers all the important details in a brief, easily digestible format.")
-   st.write("## What the Tool Does")
-   st.write("The News Article Summarizer Tool reads and analyzes full-length news articles, extracting the most critical information and presenting it in a structured manner. It condenses lengthy pieces into concise summaries while maintaining the integrity of the original content. This enables users to quickly understand the essence of any news story.")
-   st.write("## How It Works")
-   st.write("The tool follows a comprehensive step-by-step process to create accurate and objective summaries:")
-   st.write("*Analyze and Extract Information:* The tool carefully scans the article, identifying key elements such as the main event or issue, people involved, dates, locations, and any supporting evidence like quotes or statistics.")
-   st.write("*Structure the Summary:* It organizes the extracted information into a clear, consistent format. This includes:")
-   st.write("- *Headline:* A brief, engaging headline that captures the essence of the story.")
-   st.write("- *Lead:* A short introduction summarizing the main event.")
-   st.write("- *Significance:* An explanation of why the news matters.")
-   st.write("- *Details:* A concise breakdown of the key points.")
-   st.write("- *Conclusion:* A wrap-up sentence outlining future implications or developments.")
-   st.write("# Why Use This Tool?")
-   st.write("- *Time-Saving:* Quickly grasp the key points of any article without having to read through long pieces.")
-   st.write("- *Objective and Neutral:* The tool maintains an unbiased perspective, presenting only factual information.")
-   st.write("- *Structured and Consistent:* With its organized format, users can easily find the most relevant information, ensuring a comprehensive understanding of the topic at hand.")
-   st.write("# Ideal Users")
-   st.write("This tool is perfect for:")
-   st.write("- Busy professionals who need to stay informed but have limited time.")
-   st.write("- Students and researchers looking for quick, accurate summaries of current events.")
-   st.write("- Media outlets that want to provide readers with quick takes on trending news.")
-   st.write("Start using the News Article Summarizer Tool today to get concise and accurate insights into the news that matters most!")
+    st.title('Amber\'s News Summarizer Tool')
+    st.write("Welcome to the News Article Summarizer Tool, designed to provide you with clear, concise, and well-structured summaries of news articles. This tool is ideal for readers who want to quickly grasp the essential points of any news story without wading through lengthy articles. Whether you’re catching up on global events, diving into business updates, or following the latest political developments, this summarizer delivers all the important details in a brief, easily digestible format.")
+    st.write("## What the Tool Does")
+    st.write("The News Article Summarizer Tool reads and analyzes full-length news articles, extracting the most critical information and presenting it in a structured manner. It condenses lengthy pieces into concise summaries while maintaining the integrity of the original content. This enables users to quickly understand the essence of any news story.")
+    st.write("## How It Works")
+    st.write("The tool follows a comprehensive step-by-step process to create accurate and objective summaries:")
+    st.write("*Analyze and Extract Information:* The tool carefully scans the article, identifying key elements such as the main event or issue, people involved, dates, locations, and any supporting evidence like quotes or statistics.")
+    st.write("*Structure the Summary:* It organizes the extracted information into a clear, consistent format. This includes:")
+    st.write("- *Headline:* A brief, engaging headline that captures the essence of the story.")
+    st.write("- *Lead:* A short introduction summarizing the main event.")
+    st.write("- *Significance:* An explanation of why the news matters.")
+    st.write("- *Details:* A concise breakdown of the key points.")
+    st.write("- *Conclusion:* A wrap-up sentence outlining future implications or developments.")
+    st.write("# Why Use This Tool?")
+    st.write("- *Time-Saving:* Quickly grasp the key points of any article without having to read through long pieces.")
+    st.write("- *Objective and Neutral:* The tool maintains an unbiased perspective, presenting only factual information.")
+    st.write("- *Structured and Consistent:* With its organized format, users can easily find the most relevant information, ensuring a comprehensive understanding of the topic at hand.")
+    st.write("# Ideal Users")
+    st.write("This tool is perfect for:")
+    st.write("- Busy professionals who need to stay informed but have limited time.")
+    st.write("- Students and researchers looking for quick, accurate summaries of current events.")
+    st.write("- Media outlets that want to provide readers with quick takes on trending news.")
+    st.write("Start using the News Article Summarizer Tool today to get concise and accurate insights into the news that matters most!")
    
 elif options == "Excavation Team" :
      st.title('Excavation Team')
@@ -120,6 +130,16 @@ elif options == "Excavation Team" :
 
 
 elif options == "Preservation Model" :
+     st.markdown("""
+            <style>
+            .stApp {
+                background-image: url('https://images.pexels.com/photos/18934684/pexels-photo-18934684.jpeg');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            </style> """, 
+        unsafe_allow_html=True)
      st.title('Model')
      col1, col2, col3 = st.columns([1, 2, 1])
 
@@ -170,6 +190,17 @@ Once you have processed the article following these steps, present the summary i
 
 
 elif options == "AI Archaeologist" :
+     st.markdown("""
+            <style>
+            .stApp {
+                background-image: url('https://images.pexels.com/photos/20872396/pexels-photo-20872396/free-photo-of-athens-at-night-with-a-view-of-the-parthenon-greece.png');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            </style> """, 
+        unsafe_allow_html=True)
+         
      st.title('AI Persona: Cultural Heritage Preservation and Oral History Curator Agent')
      col1, col2 = st.columns([1, 1])
     
@@ -241,6 +272,19 @@ elif options == "AI Archaeologist" :
 
 
 elif options == "Indiana Jones" :
+    #  image_path = os.path.abspath('AI_First_Day_3_Activity_4/images/indiana_jones_background_by_karllis_d5hnq13-fullview.jpg')
+    #  image_url = f'file://{image_path}'
+     st.markdown("""
+            <style>
+            .stApp {
+                background-image: url('https://images.pexels.com/photos/1631665/pexels-photo-1631665.jpeg');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            </style> """, 
+        unsafe_allow_html=True)
+    
      st.title('Indiana Jones: The Relic Hunter and Seasoned Professor')
      st.subheader("The Relic Hunter's Lab") 
      col1, col2 = st.columns([1, 1])
@@ -311,6 +355,8 @@ elif options == "Indiana Jones" :
                 st.success("Discovery Unveiled!")
                 st.subheader("The Artifact’s Secrets Revealed:")
                 st.write(response)
+
+
 
 
 
