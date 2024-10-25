@@ -37,8 +37,8 @@ with st.sidebar :
 
     options = option_menu(
         "Dashboard", 
-        ["Home", "About Us", "Model"],
-        icons = ['book', 'globe', 'tools'],
+        ["Home", "About Us", "Model", "AI Persona"],
+        icons = ['book', 'globe', 'tools', 'person'],
         menu_icon = "book", 
         default_index = 0,
         styles = {
@@ -92,11 +92,11 @@ elif options == "About Us" :
 
 
 elif options == "Model" :
-     st.title('News Summarizer Tool')
+     st.title('Model')
      col1, col2, col3 = st.columns([1, 2, 1])
 
      with col2:
-          News_Article = st.text_input("News Article", placeholder="News : ")
+          News_Article = st.text_area("News Article", placeholder="News : ")
           submit_button = st.button("Generate Summary")
 
      if submit_button:
@@ -139,3 +139,72 @@ Once you have processed the article following these steps, present the summary i
              st.success("Insight generated successfully!")
              st.subheader("Summary : ")
              st.write(response)
+
+
+elif options == "AI Persona" :
+     st.title('AI Persona: Cultural Heritage Preservation and Oral History Curator Agent')
+     col1, col2 = st.columns([1, 1])
+    
+     with col1:
+        uploaded_file = st.file_uploader("Upload an image of cultural artifact", type=['png', 'jpg', 'jpeg'])
+        if uploaded_file is not None:
+            st.image(uploaded_file, caption='Uploaded Image', use_column_width=True)
+    
+     with col2:
+        text_input = st.text_area("Description of cultural artifact or practice", placeholder="Enter text here...")
+    
+     submit_button = st.button("Process Cultural Material")
+
+     if submit_button:
+        if uploaded_file is None and not text_input:
+            st.warning("Please upload an image or provide a description (or both) before processing.")
+        else:
+            with st.spinner("Analyzing cultural material..."):
+                System_Prompt = """
+                    You are a Cultural Heritage Preservation and Oral History Curator Agent, skilled at safeguarding and analyzing cultural practices, stories, and heritage materials. Your mission is to process, document, and make accessible the diverse traditions and histories of different cultures by creating informative and engaging learning materials. Follow the steps below to fulfill your objectives:
+
+                    Step 1: Process and Categorize Cultural Materials
+                    Analyze visual, audio, and text recordings of cultural practices and oral histories to identify key elements.
+                    Categorize the collected data by tradition, technique, and cultural significance. Highlight unique elements such as materials used, specific methods, and notable figures.
+                    Identify patterns and connections between traditions, especially how different cultural practices relate to each other over time or across regions.
+                    
+                    Step 2: Generate Questions and Fill Knowledge Gaps
+                    Use critical listening and analysis to identify gaps in recorded narratives or techniques.
+                    Generate specific follow-up questions aimed at filling these gaps, focusing on historical context, variations in technique, and cultural significance.
+                    Ensure questions are crafted to elicit rich, detailed answers that add depth to the cultural narrative and address aspects like community values, symbolism, and origins.
+                    
+                    Step 3: Create Interactive Learning Materials
+                    Based on analyzed data, develop step-by-step guides, tutorials, and visual aids that detail traditional crafting techniques or cultural practices.
+                    Ensure materials are structured in a way that appeals to both learners and practitioners, combining clear explanations with historical context and cultural relevance.
+                    Develop interactive formats, such as quizzes or annotated images, that make learning about the culture engaging and educational.
+                    
+                    Step 4: Identify Preservation Priorities
+                    Conduct a risk assessment to determine which traditions, artifacts, or stories are at the highest risk of loss, and suggest preservation priorities accordingly.
+                    Use cultural importance, the fragility of materials, and the scarcity of skilled practitioners as criteria for determining priorities.
+                    
+                    Step 5: Document and Map Cultural Patterns
+                    Map the relationships between various cultural elements, identifying how specific traditions, motifs, or techniques interconnect within a culture or across different cultures.
+                    Generate visual or written documentation that provides a detailed account of these cultural elements, from crafting techniques to storytelling themes.
+                    Suggest modern adaptations of traditional practices that honor core elements while accommodating current contexts, making them accessible and relevant for future generations.
+                    
+                    Step 6: Maintain Cultural Respect and Neutrality
+                    Approach each culture with respect, presenting information without imposing external biases or judgments.
+                    Ensure all documentation and materials are accurate, neutral, and factually representative of the culture's intentions and values.
+                    Once you have processed the cultural material following these steps, present your findings, guides, and interactive materials in a structured and culturally sensitive format. 
+                """
+                user_message = ""
+                if uploaded_file is not None:
+                    user_message += "An image of a cultural artifact has been uploaded. "
+                if text_input:
+                    user_message += f"Description: {text_input}"
+
+                struct = [{'role': 'system', 'content': System_Prompt}]
+                struct.append({"role": "user", "content": user_message})
+                
+                chat = openai.ChatCompletion.create(model="gpt-4o-mini", messages=struct)
+                response = chat.choices[0].message.content
+                struct.append({"role": "assistant", "content": response})
+                
+                st.success("Analysis completed successfully!")
+                st.subheader("Cultural Analysis:")
+                st.write(response)
