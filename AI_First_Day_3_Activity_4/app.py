@@ -20,7 +20,7 @@ from streamlit_extras.mention import mention
 warnings.filterwarnings("ignore")
 
 
-st.set_page_config(page_title="News Summarizer Tool", page_icon="", layout="wide")
+st.set_page_config(page_title="Amber's News Summarizer Tool", page_icon="", layout="wide")
 
 with st.sidebar :
     st.image('images/White_AI Republic.png')
@@ -57,7 +57,7 @@ if 'chat_session' not in st.session_state:
 # Options : Home
 if options == "Home" :
 
-   st.title('News Summarizer Tool')
+   st.title('Amber\'s News Summarizer Tool')
    st.write("Welcome to the News Article Summarizer Tool, designed to provide you with clear, concise, and well-structured summaries of news articles. This tool is ideal for readers who want to quickly grasp the essential points of any news story without wading through lengthy articles. Whether you’re catching up on global events, diving into business updates, or following the latest political developments, this summarizer delivers all the important details in a brief, easily digestible format.")
    st.write("## What the Tool Does")
    st.write("The News Article Summarizer Tool reads and analyzes full-length news articles, extracting the most critical information and presenting it in a structured manner. It condenses lengthy pieces into concise summaries while maintaining the integrity of the original content. This enables users to quickly understand the essence of any news story.")
