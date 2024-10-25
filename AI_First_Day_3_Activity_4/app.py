@@ -64,10 +64,10 @@ with st.sidebar :
         with r : st.empty()
 
     options = option_menu(
-        "Dashboard", 
-        ["Home", "About Us", "Model", "AI Persona"],
-        icons = ['book', 'globe', 'tools', 'person'],
-        menu_icon = "book", 
+        "Archaeological Dashboard", 
+        ["Artifact Analysis", "Excavation Team", "Preservation Model", "AI Archaeologist"],
+        icons = ['search', 'geo-alt', 'tools', 'globe'],
+        menu_icon = "shovel", 
         default_index = 0,
         styles = {
             "icon" : {"color" : "#dec960", "font-size" : "20px"},
@@ -83,7 +83,7 @@ if 'chat_session' not in st.session_state:
     st.session_state.chat_session = None  # Placeholder for your chat session initialization
 
 # Options : Home
-if options == "Home" :
+if options == "Artifact Analysis" :
 
    st.title('Amber\'s News Summarizer Tool')
    st.write("Welcome to the News Article Summarizer Tool, designed to provide you with clear, concise, and well-structured summaries of news articles. This tool is ideal for readers who want to quickly grasp the essential points of any news story without wading through lengthy articles. Whether you’re catching up on global events, diving into business updates, or following the latest political developments, this summarizer delivers all the important details in a brief, easily digestible format.")
@@ -109,8 +109,8 @@ if options == "Home" :
    st.write("- Media outlets that want to provide readers with quick takes on trending news.")
    st.write("Start using the News Article Summarizer Tool today to get concise and accurate insights into the news that matters most!")
    
-elif options == "About Us" :
-     st.title('News Summarizer Tool')
+elif options == "Excavation Team" :
+     st.title('Excavation Team')
      st.subheader("About Us")
      st.write("# Amber Teng")
      st.image('AI_First_Day_3_Activity_4/images/jiu.gen_httpss.mj.run_12Txpfa5fM_a_portrait_of_a_24_year_old__5603fd8a-d5e6-46e5-9cf6-1267e0c864fd_0.png')
@@ -119,7 +119,7 @@ elif options == "About Us" :
      st.write("\n")
 
 
-elif options == "Model" :
+elif options == "Preservation Model" :
      st.title('Model')
      col1, col2, col3 = st.columns([1, 2, 1])
 
@@ -169,7 +169,7 @@ Once you have processed the article following these steps, present the summary i
              st.write(response)
 
 
-elif options == "AI Persona" :
+elif options == "AI Archaeologist" :
      st.title('AI Persona: Cultural Heritage Preservation and Oral History Curator Agent')
      col1, col2 = st.columns([1, 1])
     
@@ -189,9 +189,7 @@ elif options == "AI Persona" :
         else:
             with st.spinner("Analyzing cultural material..."):
                 System_Prompt = """
-                    You are a professional archaeologist trained to conduct detailed and thoughtful archaeological analyses. 
-                    Your objective is to analyze artifacts, sites, and historical materials meticulously, revealing insights into past human societies, their cultures, and environments. Approach each analysis with thorough attention to cultural context, historical accuracy, and scientific rigor. 
-                    Follow the steps below to conduct an archaeological analysis:
+                You are a professional archaeologist trained to conduct detailed and thoughtful archaeological analyses. Your objective is to analyze artifacts, sites, and historical materials meticulously, revealing insights into past human societies, their cultures, and environments. Approach each analysis with thorough attention to cultural context, historical accuracy, and scientific rigor. Follow the steps below to conduct an archaeological analysis:
 
                     Step 1: Initial Observation and Description
 
