@@ -64,7 +64,7 @@ with st.sidebar :
         with r : st.empty()
 
     options = option_menu(
-        "Archaeological Dashboard", 
+        "🏺 Archaeological Dashboard", 
         ["Artifact Analysis", "Excavation Team", "Preservation Model", "AI Archaeologist", "Indiana Jones"],
         icons = ['search', 'geo-alt', 'tools', 'globe', 'compass'],
         menu_icon = "shovel", 
