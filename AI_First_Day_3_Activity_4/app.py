@@ -22,6 +22,34 @@ warnings.filterwarnings("ignore")
 
 st.set_page_config(page_title="Amber's News Summarizer Tool", page_icon="", layout="wide")
 
+st.markdown("""
+<style>
+    body {
+        color: #5c4033;
+        background-color: #f5e6d3;
+    }
+    .stApp {
+        background-image: url('https://images.pexels.com/photos/1484776/pexels-photo-1484776.jpeg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .stButton>button {
+        color: #f5e6d3;
+        background-color: #8b4513;
+        border: 2px solid #5c4033;
+    }
+    .stTextInput>div>div>input {
+        color: #5c4033;
+        background-color: #f5e6d3;
+    }
+    .stTextArea>div>div>textarea {
+        color: #5c4033;
+        background-color: #f5e6d3;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 with st.sidebar :
     st.image('AI_First_Day_3_Activity_4/images/White_AI Republic.png')
     openai.api_key = st.text_input('Enter OpenAI API token:', type='password')
@@ -208,3 +236,6 @@ elif options == "AI Persona" :
                 st.success("Analysis completed successfully!")
                 st.subheader("Cultural Analysis:")
                 st.write(response)
+
+
+
